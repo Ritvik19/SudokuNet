@@ -1,0 +1,5 @@
+keras==3.0.1
+numpy==1.26.2
+pandas==2.1.4
+torch==2.1.2
+datasets==2.15.0

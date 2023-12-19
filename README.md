@@ -136,4 +136,4 @@ Your contributions will be highly appreciated and acknowledged!
 
 ## License
 
-This project is licensed under [License Name]. Refer to `LICENSE` for more details.
+This project is licensed under [Apache-2.0]. Refer to `LICENSE` for more details.

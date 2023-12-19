@@ -21,6 +21,26 @@ The training process involves using the Adam optimizer with a learning rate of 1
 
 The model's performance is evaluated based on accuracy, indicating whether the model correctly solves Sudoku puzzles or not. Further insights on performance metrics are detailed in the [Model Card](https://huggingface.co/Ritvik19/SuDoKu-Net).
 
+### Getting the Pretrained Models
+
+To fetch pretrained models from the remote model repository
+
+```python
+from huggingface_hub import hf_hub_download
+
+model_file_path = hf_hub_download(
+    repo_id="Ritvik19/SuDoKu-Net",
+    filename="model_filename_here",
+    revision="model_revision_here",
+)
+```
+
+#### Pretrained Models
+
+| Model | File Name | Revision |
+|:---|:---|:---|
+| v1.0 | ffn.keras | b57f9a0538e28249c92733cb025c87d07831baa1 |
+
 ## Usage
 
 ### Interacting with the Model

@@ -1,4 +1,5 @@
 # SuDoKuNet
+
 Ai SuDoKu Solver
 
 This repository contains scripts and resources for training SuDoKu Net
@@ -20,6 +21,26 @@ The training process involves using the Adam optimizer with a learning rate of 1
 ### Performance Metrics
 
 The model's performance is evaluated based on accuracy, indicating whether the model correctly solves Sudoku puzzles or not. Further insights on performance metrics are detailed in the [Model Card](https://huggingface.co/Ritvik19/SuDoKu-Net).
+
+### Getting the Pretrained Models
+
+To fetch pretrained models from the remote model repository
+
+```python
+from huggingface_hub import hf_hub_download
+
+model_file_path = hf_hub_download(
+    repo_id="Ritvik19/SuDoKu-Net",
+    filename="model_filename_here",
+    revision="model_revision_here",
+)
+```
+
+#### Pretrained Models
+
+| Model | File Name | Revision                                 |
+| :---- | :-------- | :--------------------------------------- |
+| v1.0  | ffn.keras | b57f9a0538e28249c92733cb025c87d07831baa1 |
 
 ## Usage
 
@@ -102,6 +123,44 @@ python main.py --train path/to/train_data.parquet --valid path/to/valid_data.par
 
 Feel free to customize the training parameters as needed.
 
+### Inference
+
+Performing inference with the trained model can be done using the `SudokuSolver` class:
+
+1. **Instantiate the SudokuSolver Class:**
+
+```python
+from infer import SudokuSolver
+
+# Provide the path to the trained model
+model_path = 'path/to/your/model_file'
+
+# Instantiate the SudokuSolver object
+solver = SudokuSolver(model_path)
+```
+
+2. **Solve Sudoku Puzzles:**
+
+```python
+# Provide the puzzle as input to the solver object
+puzzle = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+]
+
+# Call the solver object with the puzzle to get the solution
+solution = solver(puzzle)
+```
+
+Replace `'path/to/your/model_file'` with the actual path to your trained model file. Input your Sudoku puzzle as a 9x9 matrix with 0s indicating empty cells. The solver object will return the solution for the provided puzzle.
+
 ## Contribution
 
 Contributions are welcome! If you want to contribute to this project, please follow the follwing guidelines:
@@ -136,4 +195,4 @@ Your contributions will be highly appreciated and acknowledged!
 
 ## License
 
-This project is licensed under [License Name]. Refer to `LICENSE` for more details.
+This project is licensed under Apache-2.0. Refer to `LICENSE` for more details.

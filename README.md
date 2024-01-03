@@ -2,7 +2,7 @@
 
 Ai SuDoKu Solver
 
-This repository contains scripts and resources for training SuDoKu Net
+This repository contains scripts and resources for training Sudoku Net
 
 ## Dataset
 
@@ -12,7 +12,7 @@ The model is trained on a dataset comprising 17 million Sudoku puzzles from vari
 
 ### Model Architecture
 
-The solver utilizes a Feed Forward Neural Network architecture. Details about the layers, units, and unique aspects of the architecture can be found in the [Model Card](https://huggingface.co/Ritvik19/SuDoKu-Net).
+The solver utilizes a Feed Forward Neural Network architecture. Details about the layers, units, and unique aspects of the architecture can be found in the [Model Card](https://huggingface.co/Ritvik19/SudokuNet).
 
 ### Training
 
@@ -20,7 +20,7 @@ The training process involves using the Adam optimizer with a learning rate of 1
 
 ### Performance Metrics
 
-The model's performance is evaluated based on accuracy, indicating whether the model correctly solves Sudoku puzzles or not. Further insights on performance metrics are detailed in the [Model Card](https://huggingface.co/Ritvik19/SuDoKu-Net).
+The model's performance is evaluated based on accuracy, indicating whether the model correctly solves Sudoku puzzles or not. Further insights on performance metrics are detailed in the [Model Card](https://huggingface.co/Ritvik19/SudokuNet).
 
 ### Getting the Pretrained Models
 
@@ -30,7 +30,7 @@ To fetch pretrained models from the remote model repository
 from huggingface_hub import hf_hub_download
 
 model_file_path = hf_hub_download(
-    repo_id="Ritvik19/SuDoKu-Net",
+    repo_id="Ritvik19/SudokuNet",
     filename="model_filename_here",
     revision="model_revision_here",
 )
@@ -46,7 +46,7 @@ model_file_path = hf_hub_download(
 
 ### Interacting with the Model
 
-Users can interact with the trained model through this [Space](https://huggingface.co/spaces/Ritvik19/SuDoKuNet).
+Users can interact with the trained model through this [Space](https://huggingface.co/spaces/Ritvik19/SudokuNetDemo).
 
 ## Getting Started
 

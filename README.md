@@ -1,6 +1,6 @@
-# SuDoKuNet
+# SudokuNet
 
-Ai SuDoKu Solver
+Ai Sudoku Solver
 
 This repository contains scripts and resources for training Sudoku Net
 

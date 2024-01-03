@@ -108,6 +108,22 @@ class SudokuNetTrainer:
                     grid.flat[confidence_position] = confidence_value
         return puzzles
 
+    def is_valid_sudoku(self, board):
+        rows = [set() for _ in range(9)]
+        cols = [set() for _ in range(9)]
+        subgrids = [set() for _ in range(9)]
+
+        for i in range(9):
+            for j in range(9):
+                num = board[i][j]
+                subgrid_index = (i // 3) * 3 + j // 3
+                if num in rows[i] or num in cols[j] or num in subgrids[subgrid_index]:
+                    return False
+                rows[i].add(num)
+                cols[j].add(num)
+                subgrids[subgrid_index].add(num)
+        return True
+
     def evaluate(self, model, dataset):
         self.logger.info("Evaluating model")
         preprocess_args = dict(
@@ -119,7 +135,7 @@ class SudokuNetTrainer:
         solutions = np.array(preprocessed_dataset["solution"])
         solutions_pred = self.predict(model, puzzles)
         deltas = (solutions != solutions_pred).sum((1, 2))
-        accuracy = 1 - (np.count_nonzero(deltas) / len(deltas))
+        accuracy = np.array([self.is_valid_sudoku(solution) for solution in solutions_pred]).astype(int).mean()
         mean_delta = np.round(deltas.mean())
         self.logger.info(f"[Accuracy: {accuracy}] [Mean Delta: {mean_delta}]")
         return {

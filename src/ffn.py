@@ -12,7 +12,7 @@ class FFNTrainer(SudokuNetTrainer):
     def build_model(self):
         model_input = layers.Input(shape=(9, 9, 10), name="puzzle")
         x = layers.Rescaling(scale=1.0 / 4.5, offset=-1.0, name="rescaling")(model_input)
-        x = layers.Dense(64, activation="relu", name="block_01_linear")(model_input)
+        x = layers.Dense(64, activation="relu", name="block_01_linear")(x)
         x = layers.Dropout(0.4, name="block_01_dopout")(x)
         x = layers.Dense(64, activation="relu", name="block_02_linear")(x)
         x = layers.Dropout(0.4, name="block_02_dropout")(x)

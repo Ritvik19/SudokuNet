@@ -38,9 +38,9 @@ model_file_path = hf_hub_download(
 
 #### Pretrained Models
 
-| Model | File Name | Revision                                 |
-| :---- | :-------- | :--------------------------------------- |
-| v1.0  | ffn.keras | b57f9a0538e28249c92733cb025c87d07831baa1 |
+| File Name | Revision                                 | Accuracy |
+| :-------- | :--------------------------------------- | -------: |
+| ffn.keras | 6d5cc2e4bd1303b5224c5103e369a602a72481b2 | 0.92932  |
 
 ## Usage
 

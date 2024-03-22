@@ -21,6 +21,7 @@ class SudokuNetTrainer:
         else:
             self.logger.info("Building model")
             model = self.build_model()
+            utils.plot_model(model, to_file="../model.png", show_shapes=True, show_layer_names=True, expand_nested=True, show_layer_activations=True, rankdir="LR")
         model.summary()
         model.compile(optimizer="adam", loss="sparse_categorical_crossentropy")
         return model
@@ -81,7 +82,16 @@ class SudokuNetTrainer:
                     monitor="val_loss",
                     patience=3,
                     verbose=1,
-                )
+                    restore_best_weights=True,
+                    min_delta=0.01,
+                ),
+                callbacks.ReduceLROnPlateau(
+                    monitor="val_loss",
+                    factor=0.1,
+                    patience=2,
+                    verbose=1,
+                    min_delta=0.01,
+                ),
             ],
             validation_data=preprocessed_valid_dataset,
             verbose=1,
@@ -136,7 +146,7 @@ class SudokuNetTrainer:
         solutions_pred = self.predict(model, puzzles)
         deltas = (solutions != solutions_pred).sum((1, 2))
         accuracy = np.array([self.is_valid_sudoku(solution) for solution in solutions_pred]).astype(int).mean()
-        mean_delta = np.round(deltas.mean())
+        mean_delta = np.round(deltas.mean(), 2)
         self.logger.info(f"[Accuracy: {accuracy}] [Mean Delta: {mean_delta}]")
         return {
             "accuracy": accuracy,

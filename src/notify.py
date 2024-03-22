@@ -23,8 +23,11 @@ class SandeshLogger:
         return logger
 
     def send_sandesh(self, message):
-        if not self.disable:
-            sandesh.send(f"{self.name}: {message}", webhook=self.webhook)
+        try:
+            if not self.disable:
+                sandesh.send(f"{self.name}: {message}", webhook=self.webhook)
+        except Exception:
+            pass
 
     def info(self, message, sandesh=False):
         if not self.disable:

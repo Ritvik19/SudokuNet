@@ -31,7 +31,7 @@ if __name__ == "__main__":
         raise ValueError(f"Unknown model type {args.model_type}")
     assets = trainer(args)
     logger.send_sandesh(
-        f"Training completed. [accuracy={assets['metrics']['accuracy']}] [mean_delta={assets['metrics']['mean_delta']}]"
+        f"Training completed. [{args.model_save}] [accuracy={assets['metrics']['accuracy']}] [mean_delta={assets['metrics']['mean_delta']}]"
     )
     result_logger.info(
         f"[model={args.model_type}] [num_delete={args.num_delete}] "

@@ -38,9 +38,14 @@ model_file_path = hf_hub_download(
 
 #### Pretrained Models
 
-| File Name | Revision                                 | Accuracy |
-| :-------- | :--------------------------------------- | -------: |
-| ffn.keras | 6d5cc2e4bd1303b5224c5103e369a602a72481b2 | 0.92932  |
+| Model Filename         | Accuracy |
+| ---------------------- | -------: |
+| ffn__64x2.keras        |  0.92932 |
+| ffn__64x4.keras        |  0.92928 |
+| ffn__128x2.keras    👑 |  0.92968 |
+| ffn__128x4.keras       |  0.92892 |
+| cnn__64x2.keras        |  0.92796 |
+| cnn__64x4.keras        |  0.93030 |
 
 ## Usage
 

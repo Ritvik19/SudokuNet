@@ -44,7 +44,9 @@ model_file_path = hf_hub_download(
 | ffn__128x2.keras    👑 |  0.92968 |
 | ffn__128x4.keras       |  0.92892 |
 | cnn__64x2.keras        |  0.92796 |
-| cnn__64x4.keras        |  0.93030 |
+| cnn__64x4.keras     👑 |  0.93030 |
+| cnn__128x2.keras       |  0.92786 |
+| cnn__128x4.keras       |  0.92878 |
 
 ## Usage
 

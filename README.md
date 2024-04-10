@@ -32,7 +32,6 @@ from huggingface_hub import hf_hub_download
 model_file_path = hf_hub_download(
     repo_id="Ritvik19/SudokuNet",
     filename="model_filename_here",
-    revision="model_revision_here",
 )
 ```
 
@@ -65,10 +64,11 @@ pip install -r requirements.txt
 
 ### Model Definitions
 
-Two predefined models are available:
+Following predefined models are available:
 
 1. **Feed Forward Neural Network (FFN):** Defined in `ffn.py`
 2. **Convolutional Neural Network (CNN):** Defined in `cnn.py`
+3. **Bidirectional Recurrent Neural Network (RNN):** Defined in `rnn.py`
 
 ### Custom Model Architecture
 

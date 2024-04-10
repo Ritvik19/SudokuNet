@@ -2,6 +2,7 @@ import argparse
 from notify import SandeshLogger
 from ffn import FFNTrainer
 from cnn import CNNTrainer
+from rnn import RNNTrainer
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="train sudoku net")
@@ -27,6 +28,8 @@ if __name__ == "__main__":
         trainer = FFNTrainer(logger)
     elif args.model_type == "cnn":
         trainer = CNNTrainer(logger)
+    elif args.model_type == "rnn":
+        trainer = RNNTrainer(logger)
     else:
         raise ValueError(f"Unknown model type {args.model_type}")
     assets = trainer(args)

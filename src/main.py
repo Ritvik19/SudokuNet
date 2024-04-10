@@ -3,6 +3,8 @@ from notify import SandeshLogger
 from ffn import FFNTrainer
 from cnn import CNNTrainer
 from rnn import RNNTrainer
+from lstm import LSTMTrainer
+from gru import GRUTrainer
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="train sudoku net")
@@ -30,6 +32,10 @@ if __name__ == "__main__":
         trainer = CNNTrainer(logger)
     elif args.model_type == "rnn":
         trainer = RNNTrainer(logger)
+    elif args.model_type == "lstm":
+        trainer = LSTMTrainer(logger)
+    elif args.model_type == "gru":
+        trainer = GRUTrainer(logger)        
     else:
         raise ValueError(f"Unknown model type {args.model_type}")
     assets = trainer(args)

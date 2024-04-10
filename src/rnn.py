@@ -13,10 +13,10 @@ class RNNTrainer(SudokuNetTrainer):
         model_input = layers.Input(shape=(9, 9, 10), name="puzzle")
         x = layers.Reshape((81, 10), name="reshape")(model_input)
 
-        x = layers.Bidirectional(layers.SimpleRNN(64, activation="relu", name="block_01_recurrent", return_sequences=True), name="block_01_bidirectional")(x)
+        x = layers.Bidirectional(layers.SimpleRNN(64, name="block_01_recurrent", return_sequences=True), name="block_01_bidirectional")(x)
         x = layers.Dropout(0.4, name="block_01_dopout")(x)
         
-        x = layers.Bidirectional(layers.SimpleRNN(64, activation="relu", name="block_02_recurrent"), name="block_01_bidirectional")(x)
+        x = layers.Bidirectional(layers.SimpleRNN(64, name="block_02_recurrent", return_sequences=True), name="block_01_bidirectional")(x)
         x = layers.Dropout(0.4, name="block_02_dropout")(x)
 
         model_output = [

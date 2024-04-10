@@ -15,10 +15,6 @@ class CNNTrainer(SudokuNetTrainer):
         x = layers.Dropout(0.4, name="block_01_dropout")(x)
         x = layers.Conv2D(64, (3, 3), activation="relu", padding="same", name="block_02_conv")(x)
         x = layers.Dropout(0.4, name="block_02_dropout")(x)
-        x = layers.Conv2D(64, (3, 3), activation="relu", padding="same", name="block_03_conv")(x)
-        x = layers.Dropout(0.4, name="block_03_dropout")(x)
-        x = layers.Conv2D(64, (3, 3), activation="relu", padding="same", name="block_04_conv")(x)
-        x = layers.Dropout(0.4, name="block_04_dropout")(x)
         x = layers.Flatten(name="flatten")(x)
         model_output = [
             layers.Dense(9, activation="softmax", name=f"position_{i+1}_{j+1}")(x) for i in range(9) for j in range(9)

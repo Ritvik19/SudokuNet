@@ -69,6 +69,8 @@ Following predefined models are available:
 1. **Feed Forward Neural Network (FFN):** Defined in `ffn.py`
 2. **Convolutional Neural Network (CNN):** Defined in `cnn.py`
 3. **Bidirectional Recurrent Neural Network (RNN):** Defined in `rnn.py`
+4. **Bidirectional Long Short-Term Memory (LSTM):** Defined in `lstm.py`
+5. **Bidirectional Gated Recurrent Unit (GRU):** Defined in `gru.py`
 
 ### Custom Model Architecture
 

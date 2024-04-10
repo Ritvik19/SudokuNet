@@ -12,13 +12,11 @@ class GRUTrainer(SudokuNetTrainer):
     def build_model(self):
         model_input = layers.Input(shape=(9, 9, 10), name="puzzle")
         x = layers.Reshape((81, 10), name="reshape")(model_input)
-
         x = layers.Bidirectional(layers.GRU(64, name="block_01_recurrent", return_sequences=True), name="block_01_bidirectional")(x)
         x = layers.Dropout(0.4, name="block_01_dopout")(x)
-        
         x = layers.Bidirectional(layers.GRU(64, name="block_02_recurrent", return_sequences=True), name="block_02_bidirectional")(x)
         x = layers.Dropout(0.4, name="block_02_dropout")(x)
-
+        x = layers.Flatten(name="flatten")(x)
         model_output = [
             layers.Dense(9, activation="softmax", name=f"position_{i+1}_{j+1}")(x) for i in range(9) for j in range(9)
         ]

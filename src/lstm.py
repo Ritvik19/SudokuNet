@@ -16,7 +16,7 @@ class LSTMTrainer(SudokuNetTrainer):
         x = layers.Bidirectional(layers.LSTM(64, name="block_01_recurrent", return_sequences=True), name="block_01_bidirectional")(x)
         x = layers.Dropout(0.4, name="block_01_dopout")(x)
         
-        x = layers.Bidirectional(layers.LSTM(64, name="block_02_recurrent", return_sequences=True), name="block_01_bidirectional")(x)
+        x = layers.Bidirectional(layers.LSTM(64, name="block_02_recurrent", return_sequences=True), name="block_02_bidirectional")(x)
         x = layers.Dropout(0.4, name="block_02_dropout")(x)
 
         model_output = [
